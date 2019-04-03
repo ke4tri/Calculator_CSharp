@@ -9,10 +9,19 @@ namespace Calculator
     {
         public int DoMath(string stuffToCalculate)
         {
-            var splitNumbers = stuffToCalculate.Split('+')
+            try
+            {
+                var splitNumbers = stuffToCalculate.Split('+')
                 .Select(int.Parse).ToArray();
 
-            return splitNumbers[0] + splitNumbers[1];
+                return splitNumbers[0] + splitNumbers[1];
+            }
+            catch(FormatException /* ex this would be a var of FormatException*/)
+            {
+                throw new InvalidInputException();
+            }
+
+           
         }
     }
 }

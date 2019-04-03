@@ -34,5 +34,21 @@ namespace Calculator.Tests
             //Assert  -- checking the result  -- Then
             Assert.Equal(expectedResult, actualResult);
         }
+
+        [Fact]
+        public void addition_with_only_one_number_throws_an_invalid_input_exception()
+        {
+            //Arrange
+            var calculator = new CalculationEngine();
+            var input = "2+";
+            //var expectedResult = ;
+
+            //Act
+            //var result = calculator.DoMath(input);
+
+
+            //Assert
+            Assert.Throws<InvalidInputException>(() => /*Act*/ calculator.DoMath(input));
+        }
     }
 }
